@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Portfolio</title>
+<style>
+    @import url(./assets/style/style.css);
+</style>
+</head>
+<body>
+<h1 class="Port">Portfolio</h1>
+<nav class="Nav">
+    <a href="index.html">Home</a>
+    <a href="About.html">About</a>
+    <a href="Resume.html">Resume</a>
+    <a href="Portfolio.html">Portfolio</a>
+    <a href="Contacts.html">Contacts</a>
+</nav>
+<br>
+<hr style="border: 1px solid rgb(255, 255, 255); width: 80%; margin: 20px auto;">
+<br>
+<br>
+<h2 class="Projek">Projects</h2>
+<br>
+<div class="Proj">
+    <div class="project" data-title="CVSU Updates" data-description="The CvSU Updates System is a platform designed to keep students 
+        informed about important school updates, events, and announcements related to their respective programs. 
+        The system ensures that students receive timely notifications about academic schedules, school activities, 
+        and other relevant news. Key features may include real-time announcements, categorized updates per program, push notifications, 
+        event calendars, and an interactive dashboard for easy access to information. This system aims to enhance student engagement 
+        and awareness within the school community.">
+        <img src="./assets/img/CVSUUPDATES.png" alt="Cvsu Updates Website">
+    </div>
+    <div class="project" data-title="E-Scheduler" data-description="The E-Scheduler System is a web-based platform designed to help 
+        schools efficiently create and manage class schedules for both students and faculty. Administrators can assign subjects, 
+        professors, and classrooms while ensuring there are no conflicts. Students and faculty can easily view their schedules and 
+        receive updates in real time. The system automates scheduling, reducing errors and saving time. It also includes notifications, 
+        access controls, and a structured timetable, improving communication and organization within the school.">
+        <img src="./assets/img/E-SCHEDULER.png" alt="E-Scheduler">
+    </div>
+    <div class="project" data-title="Peso Converter" data-description="A currency converter that converts Peso to other currencies.">
+        <img src="./assets/img/Peso-Converter.png" alt="Peso Converter">
+    </div>
+    <div class="project" data-title="POS System" data-description="A simple Point of Sale (POS) system (unfinished).">
+        <img src="./assets/img/POS.png" alt="Simple Unfinished POS Project">
+    </div>
+</div>
+
+<div id="projectModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <img id="modalImage" src="" alt="">
+        <p id="modalDescription"></p>
+    </div>
+</div>
+
+<br>
+<br>
+
+<h2 class="Photo">Photography</h2>
+<br>
+<div class="PhotoG">
+    <img src="./assets/img/FOTO1.png" alt="Coconut Trees img">
+    <img src="./assets/img/FOTO2.png" alt="Clouds Sunset img">
+    <img src="./assets/img/FOTO3.png" alt="Trees and Sea img">
+    <img src="./assets/img/FOTO4.png" alt="Dark Clouds img">
+</div>
+
+<br>
+<br>
+
+<h2 class="Arte">Arts</h2>
+<br>
+<div class="Arts">
+    <img src="./assets/img/ART1.png" alt="Albert Coffee Art">
+    <img src="./assets/img/ART2.png" alt="Mt. Painting">
+    <img src="./assets/img/ART3.png" alt="Shy Girl Sketch">
+    <img src="./assets/img/ART4.png" alt="Sukuna Digital Art">
+    <img src="./assets/img/ART5.png" alt="19s Woman Painting">
+    <img src="./assets/img/ART6.png" alt="China Coffee Art">
+    <img src="./assets/img/ART7.png" alt="Animes Digital Art">
+    <img src="./assets/img/ART8.png" alt="Nezuko Digital Art">
+    <img src="./assets/img/ART9.png" alt="Jesus Sketch">
+    <img src="./assets/img/ART10.png" alt="BlackPink Sketch">
+</div>
+<br><br><br>
+</body>
+
+<script>
+    document.getElementById("projectModal").style.display = "none";
+    document.addEventListener("DOMContentLoaded", function () {
+        const projects = document.querySelectorAll(".project");
+        const modal = document.getElementById("projectModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalImage = document.getElementById("modalImage");
+        const modalDescription = document.getElementById("modalDescription");
+        const closeModal = document.querySelector(".close");
+    
+        projects.forEach((project) => {
+            project.addEventListener("click", function (event) {
+                event.stopPropagation(); // Prevents event bubbling
+                const title = project.getAttribute("data-title");
+                const description = project.getAttribute("data-description");
+                const imgSrc = project.querySelector("img").src;
+
+                modalTitle.textContent = title;
+                modalImage.src = imgSrc;
+                modalDescription.textContent = description;
+
+                modal.style.display = "flex";
+            });
+        });
+
+        
+        projects.forEach((project) => {
+            project.addEventListener("click", function () {
+                const title = project.getAttribute("data-title");
+                const description = project.getAttribute("data-description");
+                const imgSrc = project.querySelector("img").src;
+    
+                modalTitle.textContent = title;
+                modalImage.src = imgSrc;
+                modalDescription.textContent = description;
+    
+                modal.style.display = "flex";
+            });
+        });
+    
+        closeModal.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+    
+        window.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    });
+    </script>
+    
+
+</html>
